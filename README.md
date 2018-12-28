@@ -2,6 +2,9 @@
 CA
 
 
+
+![Client Server Cert based](client-crt.png)
+
 ## Step 1, generate server key
 
 ```
