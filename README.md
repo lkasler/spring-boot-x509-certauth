@@ -20,7 +20,7 @@ openssl req -x509 -new -nodes -key serverprivate.key -sha256 -days 1024 -out ser
 ```
 
 Password is: 'changeit'
-CN is: 'loalhost'
+CN is: 'localhost'
 
 ## Step 3, export server CA to JKS trust keystore
 
@@ -28,7 +28,7 @@ CN is: 'loalhost'
 keytool -import -file serverCA.crt -alias serverCA -keystore truststore.jks
 ```
 
-Fot keystore passord use: 'changeit'
+Fot keystore password use: 'changeit'
 
 ## Step 4, generate server keystore, same as trustore just in p12 format
 
@@ -46,7 +46,7 @@ keytool -importkeystore -srckeystore keystore.p12 -srcstoretype pkcs12 -destkeys
 
 Password is: 'changeit'
 
-## Step 6, generate a client cert
+## Step 6, generate a client key
 
 
 ```
@@ -61,6 +61,8 @@ Password: 'client'
 openssl req -new -key clientprivate.key -out client.csr
 ```
 
+The CN name: 'client' must match with auth.inMemoryAuthentication().withUser("client") given in auth config. (see CertSecurityConfig.java)
+
 
 ## Step 8, Sign CSR and generate Client Cert
 
@@ -68,7 +70,7 @@ openssl req -new -key clientprivate.key -out client.csr
 openssl x509 -req -in client.csr -CA serverCA.crt -CAkey serverprivate.key -CAcreateserial -out client.crt -days 365 -sha256
 ```
 
-You msut provide server key password: 'changeit'
+You must provide server key password: 'changeit'
 
 ## Example:
 
