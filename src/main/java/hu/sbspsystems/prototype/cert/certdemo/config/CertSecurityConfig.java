@@ -40,6 +40,7 @@ public class CertSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("client").password("none").roles("USER");
+        auth.inMemoryAuthentication().withUser("client").password("none").roles("USER").
+                and().withUser("other-client").password("none").roles("USER");
     }
 }

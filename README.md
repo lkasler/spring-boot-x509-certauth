@@ -137,3 +137,39 @@ Output is:
 ```
 curl: (35) error:14094412:SSL routines:ssl3_read_bytes:sslv3 alert bad certificate
 ```
+
+## Optionally you can create another user certificate repeating from Steps 6 to Steps 8
+
+### Generate other-client client key
+
+
+```
+openssl genrsa -aes256 -out other-client-private.key 2048
+```
+
+Password: 'other-client'
+
+### Generate CSR Certificate Signing Request for other-client
+
+```
+openssl req -new -key other-client-private.key -out other-client.csr
+```
+
+The CN name: 'other-client' must match with auth.inMemoryAuthentication().withUser("other-client") given in auth config. (see CertSecurityConfig.java)
+
+
+### Sign CSR and generate other-client Cert
+
+```
+openssl x509 -req -in other-client.csr -CA serverCA.crt -CAkey serverprivate.key -CAcreateserial -out other-client.crt -days 365 -sha256
+```
+
+You must provide server key password: 'changeit'
+
+Try the other-client with example:
+
+```
+curl -ik --cert other-client.crt --key other-client-private.key "https://localhost:8443/cert"
+```
+
+For password type: 'other-client'
