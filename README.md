@@ -1,5 +1,4 @@
-# X509 Client & Server based 2 way SSL communication based on CSR, CERT and
-CA
+# X509 Client & Server based 2 way SSL communication demonstrating usage of KEY, CSR, CERT and CA
 
 
 
