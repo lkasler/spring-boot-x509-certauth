@@ -1,4 +1,4 @@
-package hu.sbspsystems.prototype.cert.certdemo.config;
+package hu.bridgesoft.prototype.cert.certdemo.config;
 
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

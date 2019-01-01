@@ -1,4 +1,4 @@
-package hu.sbspsystems.prototype.cert.certdemo;
+package hu.bridgesoft.prototype.cert.certdemo;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

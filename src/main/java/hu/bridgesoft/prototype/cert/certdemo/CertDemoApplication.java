@@ -1,4 +1,4 @@
-package hu.sbspsystems.prototype.cert.certdemo;
+package hu.bridgesoft.prototype.cert.certdemo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
