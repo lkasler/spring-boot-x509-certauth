@@ -4,6 +4,19 @@
 
 ![Client Server Cert based](client-crt.png)
 
+## To run the application from terminal you can use one of:
+
+```
+./gradlew bootRun
+```
+
+or
+
+```
+./mvnw spring-boot:run
+```
+
+
 ## Step 1, generate server key
 
 ```
