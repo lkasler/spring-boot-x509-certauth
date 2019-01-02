@@ -35,8 +35,8 @@ public class CertSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     /*
-     * Create an in-memory authentication manager. We create 1 user (localhost which
-     * is the CN of the client certificate) which has a role of USER.
+     * Create an in-memory authentication manager. We create 2 user (User name must match with
+     * the CN name of the client certificate: client, other-client) which has a role of USER.
      */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
